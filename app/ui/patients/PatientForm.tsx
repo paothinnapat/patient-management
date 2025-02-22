@@ -7,8 +7,6 @@ import { useRouter } from 'next/navigation';
 export default function PatientForm() {
   const router = useRouter();
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
   // Form state management
   const [formData, setFormData] = useState({
     firstName: '',
@@ -30,6 +28,7 @@ export default function PatientForm() {
   const [errors, setErrors] = useState({});
   
   // Form activity tracking
+  // eslint-disable-next-line no-unused-vars
   const [isActive, setIsActive] = useState(false);
   const [lastActivity, setLastActivity] = useState(Date.now());
 
@@ -67,7 +66,7 @@ export default function PatientForm() {
       if (!response.ok) {
         throw new Error('Submission failed');
       }
-
+// eslint-disable-next-line no-unused-vars
       const data = await response.json();
       
       // Emit the complete submission
