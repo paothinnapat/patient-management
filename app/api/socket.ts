@@ -8,14 +8,6 @@ export const config = {
   },
 };
 
-export const initializeSocket = () => {
-  const socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL || 
-    (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000');
-  
-  socket = io(socketUrl);
-  return socket;
-};
-
 const ioHandler = (req: NextApiRequest, res: NextApiResponse) => {
   if (!res.socket.server.io) {
     const httpServer: NetServer = res.socket.server as any;
